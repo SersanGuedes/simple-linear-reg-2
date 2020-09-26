@@ -14,6 +14,4 @@ v_feature = ['RM','LSTAT','PTRATIO']
 feature = dict_values[ v_feature[ ind_feature ] ]
 target  = dict_values['MEDV']
 
-st.FNC_predict( feature, target )
-
-st.FNC_rmse( feature, target )
+rmse1 = st.FNC_rmse( feature, target )
