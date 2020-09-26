@@ -12,6 +12,42 @@ def contagem(l: list) -> int:
         cont += 1
     return cont
 
+def minimo(lista: list) -> float:
+    """
+    Acha o menor valor de uma lista 
+    Parametros
+    ----------
+    lista: list python - lista que queremos saber o menor valor
+
+    Returns
+    ----------
+    Scalar com o menor valor de uma lista
+    """
+    minimo = lista[0]
+    for item in lista:
+        if item < minimo:
+            minimo = item
+
+    return minimo
+
+def maximo(lista: list) -> float:
+    """
+    Acha o maior valor de uma lista 
+    Parametros
+    ----------
+    lista: list python - lista que queremos saber o maior valor
+
+    Returns
+    ----------
+    Scalar com o maior valor de uma lista
+    """
+    maximo = lista[0]
+    for item in lista:
+        if item > minimo:
+            maximo = item
+
+    return maximo
+
 def raiz(x: float) -> float:
     return x**0.5
 
