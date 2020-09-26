@@ -72,4 +72,16 @@ def test_FNC_predict():
     #v1 = [(x==y) for x,y in zip(target_pred1, target_pred2]
     v1 = [(x==y) for x,y in zip(y1, y2)]
     assert all(v1)
-    
+
+
+def test_FNC_rmse():
+    feature = np.reshape(random_list, (-1,1))
+    target = np.reshape(random_list_2, (-1,1))
+    reg = LinearRegression().fit(feature, target)
+
+    target_pred = reg.predict(feature)
+
+    rmse1 = np.sqrt( mean_squared_error(target_pred, target) )
+    rmse2 = st.FNC_rmse(feature, target)
+
+    assert rmse1.round(5) == rmse2.round(5)

@@ -12,6 +12,9 @@ def contagem(l: list) -> int:
         cont += 1
     return cont
 
+def raiz(x: float) -> float:
+    return x**0.5
+
 def soma_list(l: list) -> float:
     soma = 0
     for i in l:
@@ -60,3 +63,21 @@ def FNC_predict(feature: list, target: list) -> list:
     target_pred = [(alfa + beta*x) for x in feature]
     
     return target_pred
+
+def FNC_rmse(feature: list, target: list) -> float:
+         
+    target_pred = FNC_predict( feature, target )
+    
+    #rmse_num_aux = 0
+    #for jj in list( range( 0, len(v) ) ):
+    #    rmse_num_aux += ( w[jj] - w_pred[jj] )**2
+
+    #rmse_value = raiz( rmse_num_aux / len(v) )
+
+    v_aux_rmse = [(x - y)**2 for x, y in zip(target_pred, target) ]
+    
+    rmse_value = raiz( soma_list(v_aux_rmse) / contagem(v_aux_rmse) )
+       
+    print("RMSE:",rmse_value)
+    
+    return rmse_value
