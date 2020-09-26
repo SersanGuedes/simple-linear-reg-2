@@ -62,6 +62,11 @@ def FNC_predict(feature: list, target: list) -> list:
     alfa, beta = FNC_fit(feature, target)
     target_pred = [(alfa + beta*x) for x in feature]
     
+    import pandas as pd
+
+    df = pd.DataFrame(target_pred)
+    df.to_csv('data\predict.csv',index=False)
+
     return target_pred
 
 def FNC_rmse(feature: list, target: list) -> float:
